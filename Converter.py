@@ -61,7 +61,8 @@ def main_program(flag):
         print('\n' + "Ummmmm, you entered something wrong :(" + '\n' + "Lets's try asgain ;)" + '\n')
         main_program(1)
 
-def main_converter():
+
+if __name__ == "__main__":
     s = ''
     flag = 0
     while s != 'N' and s != 'n':
