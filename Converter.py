@@ -78,7 +78,7 @@ def out_digits():
     print(algoritm_out_digits(a, n))
 
 
-def summ_of_numb():
+def calc_of_numb():
     print("Enter your first number:")
     a = int(input())
     print("Enter the number system of this number:")
@@ -93,10 +93,42 @@ def summ_of_numb():
         a = algoritm_out_digits(a, a_ns)
     if b_ns != 10:
         b = algoritm_out_digits(b, b_ns)
-    summ = a + b
-    if s_nc != 10:
-        summ = algoritm_in_digits(summ, s_nc)
-    print(summ)
+    print("What action do you want to perform (+,-,*,/):")
+    action = input()
+    error = False
+    negative = False
+    resalt = 0
+    match action:
+        case "+":
+            resalt = a + b
+            if s_nc != 10:
+                resalt = algoritm_in_digits(resalt, s_nc)
+        case "-":
+            resalt = a - b
+            if s_nc != 10:
+                if resalt < 0:
+                    resalt *= -1
+                    negative = True
+                    resalt = algoritm_in_digits(resalt, s_nc)
+        case "*":
+            resalt = a * b
+            if s_nc != 10:
+                resalt = algoritm_in_digits(resalt, s_nc)
+        case "/":
+            if b != 0:
+                resalt = a // b
+                if s_nc != 10:
+                    resalt = algoritm_in_digits(resalt, s_nc)
+            else:
+                error = True
+    if not error:
+        if not negative:
+            print("Your answer:")
+            print(resalt)
+        else:
+            print("Negative result:", resalt)
+    else:
+        print("You have some kind of error in the input data. Enter the data again")
 
 
 def main_program(point):
@@ -105,14 +137,14 @@ def main_program(point):
     print("What are you want?")
     print("I - in (convert from a decimal system to another)")
     print("O - out (convert from an any number system to decimal)")
-    print("S - sum of numbers")
+    print("С - calculator (between two numbers)")
     ch = input()
     if ch == 'I' or ch == 'i':
         in_digits()
     elif ch == 'O' or ch == 'o':
         out_digits()
-    elif ch == 'S' or ch == 's':
-        summ_of_numb()
+    elif ch == 'C' or ch == 'c':
+        calc_of_numb()
     else:
         print('\n' + "Um, you entered something wrong :(" + '\n' + "Let's try again ;)" + '\n')
         main_program(1)
