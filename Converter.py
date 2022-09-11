@@ -90,17 +90,17 @@ def summ_of_numb():
     print("In which system do you want to get the answer:")
     s_nc = int(input())
     if a_ns != 10:
-        na = algoritm_out_digits(a, a_ns)
+        a = algoritm_out_digits(a, a_ns)
     if b_ns != 10:
-        nb = algoritm_out_digits(b, b_ns)
-    summ = na + nb
+        b = algoritm_out_digits(b, b_ns)
+    summ = a + b
     if s_nc != 10:
         summ = algoritm_in_digits(summ, s_nc)
     print(summ)
 
 
-def main_program(flag):
-    if flag > 1:
+def main_program(point):
+    if point > 1:
         print('\n' + '\n')
     print("What are you want?")
     print("I - in (convert from a decimal system to another)")
@@ -114,7 +114,7 @@ def main_program(flag):
     elif ch == 'S' or ch == 's':
         summ_of_numb()
     else:
-        print('\n' + "Ummmmm, you entered something wrong :(" + '\n' + "Lets's try asgain ;)" + '\n')
+        print('\n' + "Um, you entered something wrong :(" + '\n' + "Let's try again ;)" + '\n')
         main_program(1)
 
 
