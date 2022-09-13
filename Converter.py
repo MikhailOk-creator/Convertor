@@ -114,13 +114,15 @@ def calc_of_numb():
                     resalt = algoritm_in_digits(resalt, s_nc)
         case "*":
             resalt = a * b
+            s_nc += 1
             if s_nc != 10:
-                resalt = algoritm_in_digits(resalt, s_nc + 1)
+                resalt = algoritm_in_digits(resalt, s_nc)
         case "/":
             if b != 0:
                 resalt = a // b
+                resalt -= 1
                 if s_nc != 10:
-                    resalt = algoritm_in_digits(resalt - 1, s_nc)
+                    resalt = algoritm_in_digits(resalt, s_nc)
             else:
                 error = True
     if not error:
