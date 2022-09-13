@@ -1,4 +1,4 @@
-letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
+letters = ['A', 'Б', 'C', 'Д', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
            'W', 'X', 'Y', 'Z']
 
 
@@ -98,12 +98,15 @@ def calc_of_numb():
     error = False
     negative = False
     resalt = 0
+    s_nc += 1
     match action:
         case "+":
+            b += 1
             resalt = a + b
             if s_nc != 10:
                 resalt = algoritm_in_digits(resalt, s_nc)
         case "-":
+            b -= 1
             resalt = a - b
             if s_nc != 10:
                 if resalt < 0:
@@ -113,12 +116,12 @@ def calc_of_numb():
         case "*":
             resalt = a * b
             if s_nc != 10:
-                resalt = algoritm_in_digits(resalt, s_nc)
+                resalt = algoritm_in_digits(resalt + 1, s_nc)
         case "/":
             if b != 0:
                 resalt = a // b
                 if s_nc != 10:
-                    resalt = algoritm_in_digits(resalt, s_nc)
+                    resalt = algoritm_in_digits(resalt - 1, s_nc)
             else:
                 error = True
     if not error:
