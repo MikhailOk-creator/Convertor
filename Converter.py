@@ -130,24 +130,71 @@ def calc_of_numb():
     else:
         print("You have some kind of error in the input data. Enter the data again")
 
+def ip_converter_in():
+    ip = input("Enter your IP-address: ")
+    ip = ip.split(".")
+    for i in range(len(ip)):
+        ip[i] = int(ip[i])
+    n = input("Enter the number system into which you are going to translate this IP-address "
+              "(by default, the translation will be made to the binary number system): ")
+    if n == "":
+        n = 2
+    n = int(n)
+    answer = ""
+    for i in range(len(ip)):
+        answer_digit = algoritm_in_digits(ip[i], n)
+        if len(answer_digit) < 8:
+            answer_digit = "0" * (8 - len(answer_digit)) + answer_digit
+        answer += answer_digit
+        if i != len(ip) - 1:
+            answer += "."
+    print("Your answer:")
+    print(answer)
+
+
+def ip_converter_out():
+    ip = input("Enter your IP-address: ")
+    ip = ip.split(".")
+    for i in range(len(ip)):
+        ip[i] = int(ip[i])
+    n = input("Enter the number system from which you are going to translate this IP-address "
+              "(by default, the translation will be made from the binary number system): ")
+    if n == "":
+        n = 2
+    n = int(n)
+    answer = ""
+    for i in range(len(ip)):
+        answer += str(algoritm_out_digits(ip[i], n))
+        if i != len(ip) - 1:
+            answer += "."
+    print("Your answer:")
+    print(answer)
+
 
 def main_program(point):
     if point > 1:
         print('\n' + '\n')
     print("What are you want?")
-    print("I - in (convert from a decimal system to another)")
-    print("O - out (convert from an any number system to decimal)")
-    print("С - calculator (between two numbers)")
-    ch = input()
-    if ch == 'I' or ch == 'i':
-        in_digits()
-    elif ch == 'O' or ch == 'o':
-        out_digits()
-    elif ch == 'C' or ch == 'c':
-        calc_of_numb()
-    else:
-        print('\n' + "Um, you entered something wrong :(" + '\n' + "Let's try again ;)" + '\n')
-        main_program(1)
+    print("1) In (convert from a decimal system to another)")
+    print("2) Out (convert from an any number system to decimal)")
+    print("3) Calculator (between two numbers)")
+    print("4) IP converter (from decimal to binary or from another decimal to number system)")
+    print("5) IP converter (from binary to decimal or from another number system to decimal)")
+    ch = int(input())
+    match ch:
+        case 1:
+            in_digits()
+        case 2:
+            out_digits()
+        case 3:
+            calc_of_numb()
+        case 4:
+            ip_converter_in()
+        case 5:
+            ip_converter_out()
+        case _:
+            print('\n' + "Um, you entered something wrong :(" + '\n' + "Let's try again ;)" + '\n')
+            main_program(1)
 
 
 if __name__ == "__main__":
@@ -156,8 +203,6 @@ if __name__ == "__main__":
     while s != 'N' and s != 'n':
         flag += 1
         main_program(flag)
-        print('\n' + "Do you want to use the program again?")
-        print("Y - Yes")
-        print("N - No")
-        s = input()
+        print('\n')
+        s = input("Do you want to use the program again? [Y/n] ")
     print("Bye! Have a nice day!")
