@@ -175,23 +175,33 @@ def main_program(point):
     if point > 1:
         print('\n' + '\n')
     print("What are you want?")
-    print("1) In (convert from a decimal system to another)")
-    print("2) Out (convert from an any number system to decimal)")
-    print("3) Calculator (between two numbers)")
-    print("4) IP converter (from decimal to binary or from another decimal to number system)")
-    print("5) IP converter (from binary to decimal or from another number system to decimal)")
+    print("1. Convert a number from one number system to another" + '\n' +
+          "2. Convert an IP-address from one number system to another" + '\n' +
+          "3. Calculate two numbers in different number systems")
     ch = int(input())
     match ch:
         case 1:
-            in_digits()
+            print("1) In (convert from a decimal system to another)")
+            print("2) Out (convert from an any number system to decimal)")
+
+            ch = int(input())
+            match ch:
+                case 1:
+                    in_digits()
+                case 2:
+                    out_digits()
+
         case 2:
-            out_digits()
+            print("1) Convert IP-address from decimal to another number system")
+            print("2) Convert IP-address from another number system to decimal")
+            ch = int(input())
+            match ch:
+                case 1:
+                    ip_converter_in()
+                case 2:
+                    ip_converter_out()
         case 3:
             calc_of_numb()
-        case 4:
-            ip_converter_in()
-        case 5:
-            ip_converter_out()
         case _:
             print('\n' + "Um, you entered something wrong :(" + '\n' + "Let's try again ;)" + '\n')
             main_program(1)
