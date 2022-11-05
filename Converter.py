@@ -171,6 +171,20 @@ def ip_converter_out():
     print(answer)
 
 
+def between_digits():
+    print("Enter your number:")
+    a = int(input())
+    print("Enter the number system of this number:")
+    a_ns = int(input())
+    print("Enter the number system into which you are going to translate this number:")
+    b_ns = int(input())
+    if a_ns != 10:
+        a = algoritm_out_digits(a, a_ns)
+    a = algoritm_in_digits(a, b_ns)
+    print("Your answer:")
+    print(a)
+
+
 def main_program(point):
     if point > 1:
         print('\n' + '\n')
@@ -183,6 +197,7 @@ def main_program(point):
         case 1:
             print("1) In (convert from a decimal system to another)")
             print("2) Out (convert from an any number system to decimal)")
+            print("3) Between (convert from an any number system to another)")
 
             ch = int(input())
             match ch:
@@ -190,6 +205,8 @@ def main_program(point):
                     in_digits()
                 case 2:
                     out_digits()
+                case 3:
+                    between_digits()
 
         case 2:
             print("1) Convert IP-address from decimal to another number system")
