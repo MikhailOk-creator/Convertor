@@ -35,10 +35,8 @@ def algoritm_out_digits(a, ns):
 
 
 def in_digits():
-    print("Enter your number:")
-    a = int(input())
-    print("Enter the number system into which you are going to translate this number:")
-    n = int(input())
+    a = int(input("Enter your number: "))
+    n = int(input("Enter the number system into which you are going to translate this number: "))
     # ans = []
     # while a > (n - 1):
     #     ans.append(a % n)
@@ -62,10 +60,8 @@ def in_digits():
 
 
 def out_digits():
-    print("Enter your number:")
-    a = int(input())
-    print("Enter the number system from which you are going to translate this number:")
-    n = int(input())
+    a = int(input("Enter your number: "))
+    n = int(input("Enter the number system from which you are going to translate this number: "))
     # answer = 0
     # for i in range(len(a)):
     #     if ('A' <= a[i]) and (a[i] <= 'Z'):
@@ -79,22 +75,17 @@ def out_digits():
 
 
 def calc_of_numb():
-    print("Enter your first number:")
-    a = int(input())
-    print("Enter the number system of this number:")
-    a_ns = int(input())
-    print("Enter your second number:")
-    b = int(input())
-    print("Enter the number system of this number:")
-    b_ns = int(input())
+    a = int(input("Enter your first number: "))
+    a_ns = int(input("Enter the number system of this number: "))
+    b = int(input("Enter your second number: "))
+    b_ns = int(input("Enter the number system of this number: "))
     print("In which system do you want to get the answer:")
     s_nc = int(input())
     if a_ns != 10:
         a = algoritm_out_digits(a, a_ns)
     if b_ns != 10:
         b = algoritm_out_digits(b, b_ns)
-    print("What action do you want to perform (+,-,*,/):")
-    action = input()
+    action = input("What action do you want to perform (+,-,*,/): ")
     error = False
     negative = False
     resalt = 0
@@ -129,6 +120,7 @@ def calc_of_numb():
             print("Negative result:", resalt)
     else:
         print("You have some kind of error in the input data. Enter the data again")
+
 
 def ip_converter_in():
     ip = input("Enter your IP-address: ")
@@ -172,12 +164,9 @@ def ip_converter_out():
 
 
 def between_digits():
-    print("Enter your number:")
-    a = int(input())
-    print("Enter the number system of this number:")
-    a_ns = int(input())
-    print("Enter the number system into which you are going to translate this number:")
-    b_ns = int(input())
+    a = int(input("Enter your number: "))
+    a_ns = int(input("Enter the number system of this number: "))
+    b_ns = int(input("Enter the number system into which you are going to translate this number: "))
     if a_ns != 10:
         a = algoritm_out_digits(a, a_ns)
     a = algoritm_in_digits(a, b_ns)
