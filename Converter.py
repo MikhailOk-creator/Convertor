@@ -37,24 +37,6 @@ def algoritm_out_digits(a, ns):
 def in_digits():
     a = int(input("Enter your number: "))
     n = int(input("Enter the number system into which you are going to translate this number: "))
-    # ans = []
-    # while a > (n - 1):
-    #     ans.append(a % n)
-    #     a //= n
-    # ans.append(a)
-    # ans.reverse()
-    # answer = ""
-    # ok = True
-    # for i in range(len(ans)):
-    #     if ans[i] < 10:
-    #         answer += str(ans[i])
-    #     elif (ans[i] >= 10) and (ans[i] <= 35):
-    #         answer += str(letters[ans[i] - 10])
-    #     else:
-    #         answer = "Not enough knowledge to translate into this number system. Go into the program 2.hs. Sorry :("
-    #         ok = False
-    #         break
-    # if ok:
     print("Your answer:")
     print(algoritm_in_digits(a, n))
 
@@ -62,14 +44,6 @@ def in_digits():
 def out_digits():
     a = int(input("Enter your number: "))
     n = int(input("Enter the number system from which you are going to translate this number: "))
-    # answer = 0
-    # for i in range(len(a)):
-    #     if ('A' <= a[i]) and (a[i] <= 'Z'):
-    #         f = letters.index(a[i])
-    #         f += 10
-    #     else:
-    #         f = int(a[i])
-    #     answer += n**((len(a) - 1) - i) * f
     print("Your answer:")
     print(algoritm_out_digits(a, n))
 
@@ -79,7 +53,7 @@ def calc_of_numb():
     a_ns = int(input("Enter the number system of this number: "))
     b = int(input("Enter your second number: "))
     b_ns = int(input("Enter the number system of this number: "))
-    print("In which system do you want to get the answer:")
+    print("In which system do you want to get the answer: ")
     s_nc = int(input())
     if a_ns != 10:
         a = algoritm_out_digits(a, a_ns)
@@ -181,14 +155,13 @@ def main_program(point):
     print("1. Convert a number from one number system to another" + '\n' +
           "2. Convert an IP-address from one number system to another" + '\n' +
           "3. Calculate two numbers in different number systems")
-    ch = int(input())
+    ch = int(input("> "))
     match ch:
         case 1:
             print("1) In (convert from a decimal system to another)")
             print("2) Out (convert from an any number system to decimal)")
             print("3) Between (convert from an any number system to another)")
-
-            ch = int(input())
+            ch = int(input("> "))
             match ch:
                 case 1:
                     in_digits()
@@ -200,7 +173,7 @@ def main_program(point):
         case 2:
             print("1) Convert IP-address from decimal to another number system")
             print("2) Convert IP-address from another number system to decimal")
-            ch = int(input())
+            ch = int(input("> "))
             match ch:
                 case 1:
                     ip_converter_in()
